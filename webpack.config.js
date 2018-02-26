@@ -14,23 +14,28 @@ if (process.env.NODE_ENV !== 'production') {
 
 const config = {
   target: 'electron-renderer',
-  entry: (
-    process.env.NODE_ENV === 'production' ? [] : ['webpack-hot-middleware/client?reload=true&path=http://localhost:9000/__webpack_hmr']
-  ).concat([
-    './src/index'
-  ]),
+  entry: (process.env.NODE_ENV === 'production'
+    ? []
+    : [
+        'webpack-hot-middleware/client?reload=true&path=http://localhost:9000/__webpack_hmr'
+      ]
+  ).concat(['./src/index']),
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      loaders: ['babel-loader'],
-      exclude: /node_modules/
-    }, {
-      test: /\.css$/,
-      loader: 'style!css-loader'
-    }, {
-      test: /\.(png|woff)$/,
-      loader: 'url-loader?limit=100000'
-    }]
+    loaders: [
+      {
+        test: /\.js?$/,
+        loaders: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css-loader'
+      },
+      {
+        test: /\.(png|woff)$/,
+        loader: 'url-loader?limit=100000'
+      }
+    ]
   },
   output: {
     path: path.resolve('electron', 'build'),

@@ -1,5 +1,5 @@
-import {set, toggle, equals, wait} from 'cerebral/operators'
-import {state, props} from 'cerebral/tags'
+import { set, toggle, equals, wait } from 'cerebral/operators'
+import { state, props } from 'cerebral/tags'
 import * as actions from './actions'
 
 export const toggleAction = actions.toggleAction
@@ -31,16 +31,24 @@ export const changePage = set(state`currentPage`, props`page`)
 export const updateExpandedPaths = actions.updateExpandedPaths
 
 export const handlePayload = [
-  equals(props`type`), {
+  equals(props`type`),
+  {
     init: [actions.clean, actions.setInitialPayload],
     bulk: [actions.clean, actions.parseAndRunMessages],
     executionStart: actions.addSignal,
-    execution: [actions.updateSignal, actions.runMutation, actions.showHideAllActions],
+    execution: [
+      actions.updateSignal,
+      actions.runMutation,
+      actions.showHideAllActions
+    ],
     executionFunctionEnd: actions.updateActionOutput,
     executionPathStart: actions.updateSignalPath,
     executionEnd: actions.endSignalExecution,
     executionFunctionError: actions.updateActionError,
-    components: [set(state`componentsMap`, props`data.map`), actions.updateRenders],
+    components: [
+      set(state`componentsMap`, props`data.map`),
+      actions.updateRenders
+    ],
     recorderMutation: actions.runRecordedMutation
   }
 ]
@@ -51,7 +59,10 @@ export const reset = actions.reset
 
 export const changeSearchValue = set(state`searchValue`, props`value`)
 
-export const changeSearchComponentValue = set(state`searchComponentValue`, props`value`)
+export const changeSearchComponentValue = set(
+  state`searchComponentValue`,
+  props`value`
+)
 
 export const toggleShowActions = [
   toggle(state`storage.showActions`),
@@ -59,7 +70,10 @@ export const toggleShowActions = [
   actions.storeOptions
 ]
 
-export const toggleShowProps = [toggle(state`storage.showProps`), actions.storeOptions]
+export const toggleShowProps = [
+  toggle(state`storage.showProps`),
+  actions.storeOptions
+]
 
 export const setSignal = [
   set(state`currentPage`, 'signals'),
