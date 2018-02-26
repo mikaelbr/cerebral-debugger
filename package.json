@@ -1,7 +1,7 @@
 {
-  "name": "cerebral-debugger",
+  "name": "cerebro",
   "version": "2.3.0",
-  "description": "Cerebral Debugger",
+  "description": "Cerebro: The Cerebral Debugger",
   "private": true,
   "main": "electron/main.js",
   "scripts": {
@@ -24,16 +24,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cerebral/cerebral-debugger.git"
+    "url": "git+https://github.com/cerebral/cerebro.git"
   },
   "bugs": {
-    "url": "https://github.com/cerebral/cerebral-debugger/issues"
+    "url": "https://github.com/cerebral/cerebro/issues"
   },
   "homepage": "http://cerebraljs.com/docs/introduction/debugger.html",
   "author": "Christian Alfoni <christianalfoni@gmail.com>",
   "build": {
-    "productName": "Cerebral Debugger",
-    "appId": "cerebral.debugger",
+    "productName": "Cerebro: Cerebral Debugger",
+    "appId": "cerebral.cerebro",
     "win": {
       "target": ["nsis", "7z"]
     },
